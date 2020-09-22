@@ -22,7 +22,7 @@ if X in lst:
     result = X*M
 else:
     for i in range(M):
-        if plg == 3:
+        if plg == K:
             result = result + max(lst)
             plg = 0
         else:
