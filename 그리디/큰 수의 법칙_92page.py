@@ -45,4 +45,21 @@ print(result)
 # 이 경우는 M이 K+1로 나눠떨여져서 가능한데, 이후에 남는 수열도 생각해 줘야한다.
 # 결국 가장 큰 값이 더해지는 횟수 count = M//(k+1) * k 에다가, M%(k+1)을 더해주는 값이다.
 # 이후에 M번 - count * 두번째로 큰 값과, count * 가장 큰 값을 해주면 정답이 나온다.
-# 코드는 내일 다시 짜보자.
+
+
+import sys
+
+N, M, K = map(int, sys.stdin.readline().split())
+lst = list(map(int, sys.stdin.readline().split()))
+
+lst.sort()
+first = lst[-1]
+second = lst[-2]
+
+count = (M//(K+1))* K
+count = count + M%(K+1)
+
+result = count*first
+result = result + (M-count)*second
+
+print(result)
