@@ -22,5 +22,5 @@ for i in lst:
     team.append(i)#팀에 추가 시키고
     if i <= len(team):#지금 추가한 공포도가, 모험가 숫자보다 작거나 같으면
         cnt = cnt + 1# 팀 만듦
-        team = list()#현재 팀 초기화
+        del team[:]#현재 팀 초기화
 print(cnt)
