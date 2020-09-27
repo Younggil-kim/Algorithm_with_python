@@ -8,28 +8,19 @@
 # 입력은 첫줄에 모험가 수 N, 둘째줄에 각 모험가의 공포도를 줌
 
 #생각
-#정렬을 한 뒤, 첫번째 모험가부터 N에서 공포도를 빼 주고, N이 맞춰지면 그대로 끝내고, N이 안맞춰지면 그 그룹대로 출발
-# 가장 공포도가 큰 모험가부터, 크기에 맞게 빼 주고,
-# 그 다음 모험가를 하는 순서
+#정렬을 한 뒤, 가장 공포도가 낮은 모험가부터 팀을 만드는데,
+#지금 추가하는 공포도가 팀 숫자보다 크면 팀 결성,
 import sys
-def pop_adventure(f):
-    global lst
-    for i in range(f):
-        lst.pop()
-    return
 
 N = int(sys.stdin.readline())
 lst = list(map(int, sys.stdin.readline().split()))
-
+team = list()
 lst.sort()#정렬
 cnt = 0
 
-max_fear = lst[-1]# 가장 높은 공포도 가진 모험가를
-while True:
-    pop_adventure(max_fear)#정렬된 끝에서부터 (max_fear)명 뽑아감
-    cnt = cnt + 1# 팀을 증가시킴
-    if len(lst) == 0:# 만약 모험가가 비어있으면
-        print(cnt)# 팀 개수 출력
-        break
-    else:#모험가가 남아있으면
-        max_fear = lst[-1]#멕스 모험가 증가
+for i in lst:
+    team.append(i)#팀에 추가 시키고
+    if i <= len(team):#지금 추가한 공포도가, 모험가 숫자보다 작거나 같으면
+        cnt = cnt + 1# 팀 만듦
+        team = list()#현재 팀 초기화
+print(cnt)
