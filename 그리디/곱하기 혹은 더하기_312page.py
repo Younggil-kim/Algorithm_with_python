@@ -22,3 +22,15 @@ for i in string:
 print(lst)
 result = ''.join(lst[0:-1])
 print(eval(result))
+
+# 나 왤캐 어렵게 풀었니;
+
+string = input()
+result = int(string[0])
+for i in range(1, len(string)):
+    if int(string[i]) <=  1 or result <= 1:
+        result = result + int(string[i])
+    else:
+        result = result * int(string[i])
+
+print(result)
