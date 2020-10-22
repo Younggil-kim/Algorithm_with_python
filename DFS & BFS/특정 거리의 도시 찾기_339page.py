@@ -3,8 +3,9 @@
 # bfs를 돌면서 갔던곳은 True체크 해주고, 마지막에 도달했을때 False라면 출력해주고
 # False가 없으면 -1 출력
 
-#pypy3아니면 시간초과 뜨는듯?
+#pypy3아니면 시간초과 뜨는듯
 
+#시간, 공간 복잡도 생각 잘하고 설계 해서 들어갈 것
 from collections import deque
 
 N, M, K, X = map(int, input().split())
