@@ -15,7 +15,7 @@ num[X] = 0
 
 for i in range(M):
     x, y = map(int, input().split())
-    grp[x].append(y)
+    grp[x].append(y)#불필요한 정보까지 다 넣으면 메모리 초과 뜸
 
 que = deque()
 
@@ -27,7 +27,6 @@ while que:
         if num[i] == -1:#이전에 방문하지 않은 경우에는
             num[i] = num[x] + 1# 넘값은 최신화
             que.append(i)#이후 방문
-
 
 cnt = False
 for i in range(N+1):#반복문 돌리면서 출력
