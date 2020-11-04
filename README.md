@@ -39,3 +39,10 @@
 * [안테나_360page](https://github.com/Younggil-kim/Algorithm_with_python/blob/master/%EC%A0%95%EB%A0%AC/%EC%95%88%ED%85%8C%EB%82%98_360page.py)
 * [위에서 아래로_178page](https://github.com/Younggil-kim/Algorithm_with_python/blob/master/%EC%A0%95%EB%A0%AC/%EC%9C%84%EC%97%90%EC%84%9C%20%EC%95%84%EB%9E%98%EB%A1%9C_178page.py)
 * [카드 정렬하기_363page](https://github.com/Younggil-kim/Algorithm_with_python/blob/master/%EC%A0%95%EB%A0%AC/%EC%B9%B4%EB%93%9C%20%EC%A0%95%EB%A0%AC%ED%95%98%EA%B8%B0_363page.py)
+### 5. 이진 탐색
+- **"매 시행바다 반으로 쪼개면서 탐색하는 알고리즘"**
+* [이진 탐색 코드 재귀형태 & 반복문 형태](https://github.com/Younggil-kim/Algorithm_with_python/blob/master/%EC%9D%B4%EC%A7%84%20%ED%83%90%EC%83%89/%EC%9D%B4%EC%A7%84%20%ED%83%90%EC%83%89%20%EC%BD%94%EB%93%9C.py)
+* [고정 점 찾기_368page](https://github.com/Younggil-kim/Algorithm_with_python/blob/master/%EC%9D%B4%EC%A7%84%20%ED%83%90%EC%83%89/%EA%B3%A0%EC%A0%95%EC%A0%90%20%EC%B0%BE%EA%B8%B0_368page.py)
+* [떡볶이 떡 만들기_201page](https://github.com/Younggil-kim/Algorithm_with_python/blob/master/%EC%9D%B4%EC%A7%84%20%ED%83%90%EC%83%89/%EB%96%A1%EB%B3%B6%EC%9D%B4%20%EB%96%A1%20%EB%A7%8C%EB%93%A4%EA%B8%B0_201page.py)
+* [부품 찾기_197page](https://github.com/Younggil-kim/Algorithm_with_python/blob/master/%EC%9D%B4%EC%A7%84%20%ED%83%90%EC%83%89/%EB%B6%80%ED%92%88%20%EC%B0%BE%EA%B8%B0_197page.py)
+* [정렬된 배열에서 특정 수의 개수 구하기_367page](https://github.com/Younggil-kim/Algorithm_with_python/blob/master/%EC%9D%B4%EC%A7%84%20%ED%83%90%EC%83%89/%EC%A0%95%EB%A0%AC%EB%90%9C%20%EB%B0%B0%EC%97%B4%EC%97%90%EC%84%9C%20%ED%8A%B9%EC%A0%95%20%EC%88%98%EC%9D%98%20%EA%B0%9C%EC%88%98%20%EA%B5%AC%ED%95%98%EA%B8%B0_367page.py)
