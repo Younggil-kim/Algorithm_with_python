@@ -1,3 +1,5 @@
-a = "rel??"
+from bisect import bisect_left
 
-print(a.replace("?","2"))
+lst = [1,2]
+
+print(bisect_left(lst,0))
