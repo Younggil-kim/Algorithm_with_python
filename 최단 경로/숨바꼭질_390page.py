@@ -29,4 +29,8 @@ def dijkstra(start):
 
 dijkstra(start)
 
-print(table)
+
+b = max(table[1:])
+a = table.index(b)
+c = table.count(b)
+print(a, b, c)
