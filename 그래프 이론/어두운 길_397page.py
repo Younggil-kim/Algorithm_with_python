@@ -1,6 +1,7 @@
 import sys
 
 input = sys.stdin.readline
+
 #특정 원소가 속해있는 루트노드 찾기
 def find_parent(parent, x):
     #만약 루트노드 아니면 재귀로 계속해서 루트찾기
@@ -25,10 +26,11 @@ result = 0
 for i in range(1,V+1):
     parent[i] = i
 
+sum_cost = 0
 for _ in range(E):
     a, b, cost = map(int, input().split())
     edges.append((cost, a, b))
-
+    sum_cost += cost
 edges.sort()
 
 for edge in edges:
@@ -37,4 +39,4 @@ for edge in edges:
         union_parent(parent,a,b)
         result += cost
 
-print(result)
+print(sum_cost- result)
