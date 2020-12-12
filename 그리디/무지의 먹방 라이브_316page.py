@@ -37,3 +37,25 @@
 #하나하나 반복을 해버리니까 시간초과를 받아
 # 그럼 일단, 정렬을 시켜놓고, 생각해볼까
 # 아직 못품
+
+import heapq
+
+
+def solution(food_times, k):
+    if sum(food_times) <= k:
+        return -1
+    lst = list()
+    for i in range(len(food_times)):
+        heapq.heappush(lst, (food_times[i], i + 1))
+
+    pre_food = 0  # 이전에 먹었던 음식
+    cur_food = lst[0][0]
+
+    while k - ((cur_food - pre_food) * len(lst)) >= 0:
+        k -= ((cur_food - pre_food) * len(lst))
+        pre_food, grade = heapq.heappop(lst)
+        cur_food = lst[0][0]
+    result = sorted(lst, key=lambda x: x[1])
+    return result[k % len(lst)][1]
+
+#정답 코드
