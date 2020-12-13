@@ -1,39 +1,35 @@
-#받아온 문자열을 1,2,3,4씩 먼저 쪼갠 다음에
-# 중복 검사를 해서 최소값을 뽑는다.
-# 이거 한문제 런타임에러뜨는거 빼고 전부 맞는데
-#런타임 에러가 뭔지 모르겠어
-
-# 글자가 한글자일때 런타임 에러였어
-#그래서 한글자일때 예외처리하는 코드 추가함
-def solution(s):
-    global answer
-    len_s = len(s)
-    lst = list()
-    if len_s == 1:#한글자인경우
-        answer = 1
-        return answer
-    for j in range(1,len_s//2 + 1):
-        num = 1
-        result = ""
-        length = j
-        splt = [s[i:i+length] for i in range(0, len_s, length)]
-        for i in range(1,len(splt)):
-            if splt[i-1] == splt[i]:
-                num = num + 1
-            else:
-                if num != 1:
-                    result = result + str(num) + splt[i-1]
-                    num = 1
-                else:
-                    result = result + splt[i-1]
-        if num != 1:
-            result = result + str(num) + splt[i]
+def compress(string):
+    result = ""
+    cnt = 1
+    #1번과 2번이 같으면 cnt + 2
+    #이후 2번과 3번으로 넘어감
+    #1번과 2번이 다르면 result + 1번
+    #이후2번과 3번으로 넘어감
+    for i in range(len(string)-1):
+        if string[i] == string[i+1]:
+            cnt = cnt + 1
         else:
-            result = result + splt[i]
-        lst.append(len(result))
-        print(result)
-    answer = min(lst)
-    return answer
+            if cnt == 1:#다른데, 누적값이 없는 경우
+                result = result + string[i]
+            else:#다른데 누적값이 있는 경우
+                result = result + str(cnt) + string[i]
+                cnt = 1#카운트 초기화 
+    if cnt == 1:#마지막 값은 따로 처리 해 줌, 마지막 값이 다른경우
+        result = result + string[-1]
+    else:#마지막 값이 같은 경우
+        result = result + str(cnt) + string[-1]
+    return result
 
-a =solution("a")
-print(a)
+def solution(s):
+    #먼저 문자열 길이가 1인 경우 그대로 반환
+    if len(s) == 1:
+        return 1
+    #문자열을 받아서, 1자리 ~ 길이의 반까지 자른 후, result에 저장
+    #이후 min으로 최소값 받아와서 반환할 것
+    result = list()
+    for i in range(1,len(s)//2+1):
+        slicing = [s[j:j+i] for j in range(0, len(s), i)]
+        string = compress(slicing)
+        result.append(len(string))
+    answer = min(result)
+    return answer

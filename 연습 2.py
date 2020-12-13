@@ -1,2 +1,5 @@
-lst = [[[0 for i in range(2)]for j in range(3)]for k in range(4)]
-print(lst)
+
+
+string = "123456789"
+result = [string[i:i+3] for i in range(0, len(string), 3)]
+print(result)
