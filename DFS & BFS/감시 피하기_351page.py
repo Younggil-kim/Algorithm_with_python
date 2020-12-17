@@ -20,7 +20,8 @@ for i in range(N):
 
 wall = list()
 que = deque()
-back = deque()
+
+copy_lst = copy.deepcopy(lst)
 
 for i in range(N):
     for j in range(N):
@@ -28,64 +29,51 @@ for i in range(N):
             wall.append((i,j))
         elif lst[i][j] == 'T':
             que.append((i,j))# 선생님 시선
+copy_que = copy.deepcopy(que)
 
-back = que.copy()
 wall3 = list(combinations(wall, 3))# 벽 3개 조합
 
+dx = [-1,1,0,0]
+dy = [0,0,1,-1]
 
-def teacher():
+def bfs():
     while que:
         x, y = que.popleft()
-        nx1 = x
-        nx2 = x
-        while True:
-            nx1 = nx1 + 1
-            if nx1 >= N:
-                break
-            if lst[nx1][y] == 'S':
-                return True
-            if lst[nx1][y] == 'W':
-                break
-        while True:
-            nx1 = nx2 - 1
-            if nx2 < 0:
-                break
-            if lst[nx1][y] == 'S':
-                return True
-            elif lst[nx1][y] == 'W':
-                break
-        ny1 = y
-        ny2 = y
-        while True:
-            ny1 = ny1 + 1
-            if ny1 >= N:
-                break
-            if lst[x][ny1] == 'S':
-                return True
-            elif lst[x][ny1] == 'W':
-                break
-        while True:
-            ny2 = ny2 -1
-            if ny2 < 0:
-                break
-            if lst[x][ny2] == 'S':
-                return True
-            elif lst[x][ny2] == 'W':
-                break
+        for i in range(4):
+            copyx = x
+            copyy = y
+            while True:
+                nx = copyx + dx[i]
+                ny = copyy + dy[i]
+                if nx >= N or ny >= N or nx < 0 or ny < 0:
+                    break
+                if lst[nx][ny] == 'O':#벽이면 노진행
+                    break
+                if lst[nx][ny] == 'S':#학생이면
+                    return False
+                if lst[nx][ny] == 'X' or lst[nx][ny] == 'T':#X,T면 진행
+                    lst[nx][ny] = 'T'#선생 시선으로 바꾸고
+                    copyx = nx
+                    copyy = ny
+    return True
+#벽 3개 세우고, bfs 돌리고, 벽 3개 지우고 반복
 
-plg = False
-for i in wall3:
-    for j in i:
-        x, y = j
-        lst[x][y] = 'W'
-    if teacher() is True:
-        plg = True
-    que = back.copy()
-    for j in i:
-        x, y = j
-        lst[x][y] = 'X'
+is_teacher = False
+while wall3:
+    first, second, third = wall3.pop()
+    lst[first[0]][first[1]] = 'O'
+    lst[second[0]][second[1]] = 'O'
+    lst[third[0]][third[1]] = 'O'
+    a = bfs()
+    if a:#학생이 걸리지 않았으면
+        is_teacher = True
+        break
+    else:#걸렸으면 초기화 후 다시 벽 세우기
+        que = copy.deepcopy(copy_que)
+        lst = copy.deepcopy(copy_lst)
 
-if plg is False:
+
+if is_teacher:
     print("YES")
 else:
     print("NO")
